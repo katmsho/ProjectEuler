@@ -15,8 +15,7 @@ For i=0 to 1000
 
 result = for each x in list, sum = sum + x
     
-
-## Interation 1
+## Iteration 1
 
 Could improve loop by starting at 3, but trivial
 Could change the steps in the loop to 3 then 5 , but complicated to keep track
@@ -27,16 +26,21 @@ So, two lists 3,6,9,12,15...  5,10,15...
 Merge & remove duplicates
 Sum List
 
-## Interation 2
+## Iteration 2
 
 Explore language-specific contructs that could help simplify
 Genericised, because why not.
 
-## Interation 3
+## Iteration 3
 
 Looking at geometric implementation (yes, I googled - I'm doing this for programming practise, not maths revision)
 And now we have fizz buzz!
 
 Another refactor to allow a test to be added
+
+## Iteration 4
+
+Playing with classes
+
 
 
