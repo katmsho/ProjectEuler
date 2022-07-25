@@ -11,8 +11,6 @@ Bit of a refactor & making generic. Just because
 233168.0
 """
 
-
-from decimal import DivisionByZero
 import sys
 from timeit import default_timer as timer
 
@@ -31,7 +29,7 @@ def main(dividend,divisors):
     
     # This works when you are submitting 2 numbers
     # if submitting > 2 then this deletes too much, as numbers can be replicated
-    #TODO - need to think about cases when we are removing number multiple times, how to absrtract switch between adding/removing sums
+    #TODO - need to think about cases when we are removing number multiple times, how to abstract switch between adding/removing sums
     numList=[divisors[0]*divisors[1]]
     for number in numList:
         highestDivisbleNumber =  ((dividend-1) // number) * number
@@ -39,7 +37,6 @@ def main(dividend,divisors):
     print (total)
 
 
-#print(getNumbers(((999 // 3)*3),3) + getNumbers(((999 // 5)*5), 5) - getNumbers(((999 // 15)*15), 15) )
 def getNumbers(dividend, divisor):
     return divisor * (dividend/divisor) * ((dividend/divisor)+1) / 2
   
@@ -66,6 +63,11 @@ def checkInput(dividend,divisors):
     if len(divisors)!=2:
         print ("expected two integers in divisors list")
         exit()
+    
+    for number in divisors:
+        if 0==number:
+            print ("Divisor cannot be 0: cannot divide by zero")
+            exit()
 
 if __name__ == "__main__":
     if sys.argv[1]=='--help':
