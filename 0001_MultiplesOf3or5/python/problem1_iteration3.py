@@ -7,6 +7,7 @@ Re-learning python after many years, and intro to v3
 
 Bit of a refactor & making generic. Just because
 
+Testing via CLI: python .\problem1_iteration3.py --test
 >>> main(1000, [3,5])
 233168.0
 """
@@ -16,7 +17,7 @@ from timeit import default_timer as timer
 
 def main(dividend,divisors):
     """
-    Program takes two integer arguments and finds the sum of the multiples of sys.argv[2] the occur below sys.argv[1]
+    Program takes two integer arguments and finds the sum of the multiples of sys.argv[2] that occur below sys.argv[1]
 
     :param dividend:  integer the multiples of divisors must be less than
     :param divisors:  comma separated list of two integers.   
