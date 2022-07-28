@@ -8,7 +8,7 @@ Re-learning python after many years, and intro to v3
 Another refactor and adding a class
 
 Testing via CLI: python .\problem1_iteration4.py --test
->>> main(1000, [3,5])
+>>> main(1000, "3,5")
 233168.0
 """
 
