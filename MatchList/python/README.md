@@ -17,7 +17,7 @@ Allowing for sub dictionaries via recursion
 
 ## Iteration 3
 
-TODO
+In Progress, added binary search
 
 How to handle large input, improve on linear performance
 
