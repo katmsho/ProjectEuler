@@ -14,8 +14,8 @@ All keys in A found in B
 >>> main({"a":1, "b":"2", "d":4},{"a":1, "b":"2", "c":"three"})
 Key d not in B
 
-#>>> main({"a":1, "b":"2"},{"a":1, "b":2, "c":"three"})
-#Key b not in B
+>>> main({"a":1, "b":"2"},{"a":1, "b":2, "c":"three"})
+Key b not in B
 
 >>> main({"a":1, "b":"2", "d":{"e":"e"}},{"a":1, "b":"2", "c":"three"})
 Key d not in B
@@ -27,24 +27,27 @@ import sys
 from xmlrpc.client import Boolean
 
 #need to return found, is less than center, key is greater than center, key no match (length = 1)
-def findKey(key, b) -> Boolean:
+def findKey(item, b) -> Boolean:
     dictLength = len(b)
     dictCenter = floor(dictLength/2)
     dictCenterKeyName = list(b.keys())[dictCenter]
-    if key == dictCenterKeyName:
+    itemKey = item[0]
+    itemValue = item[1]
+    if itemKey == dictCenterKeyName and (type(itemValue)==type(b[dictCenterKeyName])):
         return True  #found
-    if key != dictCenterKeyName and dictLength==1:
+    if itemKey != dictCenterKeyName and dictLength==1:
         return False #not found
-    if key < dictCenterKeyName:    
-        return findKey(key, dict(list(b.items())[:dictCenter]))
-    if key > dictCenterKeyName:
-        return findKey(key, dict(list(b.items())[dictCenter+1:]))
+    if itemKey < dictCenterKeyName:    
+        return findKey(item, dict(list(b.items())[:dictCenter]))
+    if itemKey > dictCenterKeyName:
+        return findKey(item, dict(list(b.items())[dictCenter+1:]))
 
 def findKeys(a,b) -> Boolean:
-    for keyA in a.keys():
-        result = findKey(keyA,b)
+    
+    for item in a.items():
+        result = findKey(item,b)
         if not result:
-            print ("Key " + keyA + " not in B")
+            print ("Key " + item[0] + " not in B")
             return False
     
     return True
